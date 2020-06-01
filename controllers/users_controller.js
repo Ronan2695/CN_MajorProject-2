@@ -1,6 +1,17 @@
 module.exports.profile = function(req, res)
 {
+    return res.render('user',{
 
-    res.end('<h1> User Profiles page </h1>')
+        title:"Home"
+
+    });
+}
+
+module.exports.edit = function(req, res)
+{
+
+    res.end('<h1> User edit page </h1>')
 
 }
+
+

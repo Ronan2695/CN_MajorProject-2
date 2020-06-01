@@ -10,6 +10,7 @@ console.log("router loaded");
 //homeroutes
 router.get('/',homeController.home);
 router.get('/about',homeController.about);
+router.get('/info',homeController.info);
 
 //user routes
 router.use('/users', require('./users'))
