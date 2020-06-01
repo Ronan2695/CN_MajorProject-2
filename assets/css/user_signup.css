@@ -1,0 +1,39 @@
+#sbody
+{
+
+height: 50vh;
+width: 25vw	;
+border:1px solid black;	
+margin: 0 auto;
+margin-top:10%; 
+
+}
+
+#usrform
+{
+
+/*text-align: center;*/
+margin-top: 85px;
+font-size: 22px;
+margin-left:90px; 
+}
+
+
+.box
+{
+
+width:300px; 
+height: 30px;
+font-size: 20px;
+margin-top: 5px;
+
+}
+
+#but
+{
+
+height: 30px;
+width: 100px;
+
+}
+
