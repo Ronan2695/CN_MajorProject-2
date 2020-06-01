@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         required:true,
     },
 
-    name:{
+    name:{  
 
         type:String,
         required: true
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
 
 }, {
 
-    timestamps:true
+    timestamps  :true
 
 });
 
