@@ -3,11 +3,24 @@ const User = require('../models/user')
 
 module.exports.profile = function(req, res)
 {
-    return res.render('user',{
-
-        title:"Home"
-
-    });
+    //check user_id present in cookies
+    if(req.cookies.user_id)
+    {
+        User.findById(req.cookies.user_id, function(err,user){
+            if(user) //user is found 
+            {
+             return res.render('user',{
+                    title: "User Profile", 
+                    user:user
+                }); 
+            }
+            return res.redirect('/users/sign-in'); 
+        });
+    }
+    else
+    {
+        return res.redirect('/users/sign-in')
+    }
 }
 
 module.exports.edit = function(req, res)
@@ -112,12 +125,5 @@ User.findOne({email:req.body.email}, function(err,user){
 
 });
 
-  
-
-//HANDLE PASSWORD WHICH DON'T MATCH
-
-//HANDLE SESSION CREATION.
-
-//HANDLE USER NOT FOUND
 
 }
