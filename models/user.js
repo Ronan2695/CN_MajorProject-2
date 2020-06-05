@@ -1,4 +1,5 @@
-const mongoose= require('mongoose');
+const mongoose= require('mongoose'); // we are requiring mongoose module
+
 const userSchema = new mongoose.Schema({
     email:{
         type:String,

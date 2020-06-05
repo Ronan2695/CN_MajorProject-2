@@ -1,22 +1,24 @@
-const User = require('../models/user')
+const User = require('../models/user') // We are importing the model.
 
 
-module.exports.profile = function(req, res)
-{
+//Redirecting back to the profile page after signing in
+module.exports.profile = function(req, res){
+
     //check user_id present in cookies
     if(req.cookies.user_id)
     {
-        User.findById(req.cookies.user_id, function(err,user){
+        User.findById(req.cookies.user_id, function(err,user)   {
             if(user) //user is found 
-            {
+            { 
              return res.render('user',{
                     title: "User Profile", 
                     user:user
-                }); 
+                });     
             }
             return res.redirect('/users/sign-in'); 
         });
-    }
+    }   
+    //if user is already present
     else
     {
         return res.redirect('/users/sign-in')
@@ -26,7 +28,7 @@ module.exports.profile = function(req, res)
 module.exports.edit = function(req, res)
 {
 
-    res.end('<h1> User edit page </h1>')
+    res.end('<h1>User edit page </h1>')
 
 }
 
@@ -63,6 +65,7 @@ module.exports.create = function(req,res){
        return res.redirect('back');
     } 
 
+    //Trying to find user with same email id
     User.findOne({email: req.body.email}, function(err, user){
         if(err)
         {
@@ -70,6 +73,7 @@ module.exports.create = function(req,res){
             return
         }
 
+        //When the user is not present
         if(!user)
         {
             User.create( req.body, function(err,user){
@@ -82,7 +86,9 @@ module.exports.create = function(req,res){
 
             })
             
-        }else{
+        }
+        else
+        {
             return res.redirect('back');
         }
 
@@ -114,7 +120,7 @@ User.findOne({email:req.body.email}, function(err,user){
         }
 
         //HANDLE SESSION CREATION.
-        res.cookie('user_id', user.id); // Cookie CREATIon 
+        res.cookie('user_id', user.id); // Cookie creation 
         return res.redirect('/users/profile');
     
     }
@@ -127,3 +133,20 @@ User.findOne({email:req.body.email}, function(err,user){
 
 
 }
+
+
+module.exports.signOut= function(req, res){
+
+    if(req.cookies.user_id) // Checking if cookie exists or not
+    {
+        res.clearCookie('user_id'); //removing the cookie
+		return res.redirect('/users/sign-in')
+    }
+    else //If cookie does not exist redirect back to the same page
+    {
+        return res.redirect('/users/sign-in');
+    }
+
+
+}
+
