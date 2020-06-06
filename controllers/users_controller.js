@@ -36,7 +36,7 @@ module.exports.edit = function(req, res)
 module.exports.signin = function(req, res)
 {
 
-    return res.render('user_signin', {
+    return res.render('users_sign_in', {
         
         title:"CODIAL | SIGN IN"
 
@@ -48,7 +48,7 @@ module.exports.signin = function(req, res)
 module.exports.signup = function(req, res)
 {
 
-    return res.render('user_signup',{
+    return res.render('users_sign_up',{
         
         title:"CODIAL | SIGN UP"
 
@@ -123,7 +123,7 @@ User.findOne({email:req.body.email}, function(err,user){
         res.cookie('user_id', user.id); // Cookie creation 
         return res.redirect('/users/profile');
     
-    }
+    } 
     else //HANDLE USER NOT FOUND 
     {
         return res.redirect('back')

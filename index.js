@@ -23,9 +23,6 @@ app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
 
-//accessing the main route file
-app.use('/', require('./routes/index'))
-
 
 //setup the view engine
 app.set('view engine','ejs');
@@ -43,8 +40,12 @@ app.use(session({
 
 }))
 
+
 app.use(passport.initialize());
 app.use(passport.session());
+
+//accessing the main route file
+app.use('/', require('./routes/index'))
 
 
 app.listen(port, function(err){
