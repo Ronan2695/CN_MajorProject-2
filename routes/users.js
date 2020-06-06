@@ -13,6 +13,9 @@ router.get('/edit',usersController.edit)
 router.get('/sign-in',usersController.signin)
 router.get('/sign-up',usersController.signup)
 
+//signup
+router.post('/create',usersController.create)
+
 //use passport as a middleware to authenticate
 router.post('/create-session',passport.authenticate(
     'local',
