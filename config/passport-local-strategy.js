@@ -14,7 +14,7 @@ passport.use(new LocalStrategy({
 },
 function(email,password,done){   //--> email password are being passed.
     //find a user and establish the indentity
-    User.findOne({email:email}, function(err,user){
+    User.findOne({email:email}, function(err,user){ //we are finding a single document 
         if(err)
         {
             console.log('error in finding user ---> Passport')
