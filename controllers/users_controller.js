@@ -97,7 +97,7 @@ module.exports.create = function(req,res){
 
 }
 
-//sign in and create a session for the user
+//sign in
 module.exports.createSession = function(req,res){
 
         return res.redirect('/')
