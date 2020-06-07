@@ -4,25 +4,11 @@ const User = require('../models/user') // We are importing the model.
 //Redirecting back to the profile page after signing in
 module.exports.profile = function(req, res){
 
-    //check user_id present in cookies
-    if(req.cookies.user_id)
-    {
-        User.findById(req.cookies.user_id, function(err,user)   {
-            if(user) //user is found 
-            { 
-             return res.render('user',{
-                    title: "User Profile", 
-                    user:user
-                });     
-            }
-            return res.redirect('/users/sign-in'); 
-        });
-    }   
-    //if user is already present
-    else
-    {
-        return res.redirect('/users/sign-in')
-    }
+    return res.render('profile', {
+        
+        title:"CODIAL | Profile"
+
+    });
 }
 
 module.exports.edit = function(req, res)

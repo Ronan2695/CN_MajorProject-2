@@ -6,7 +6,7 @@ const usersController = require('../controllers/users_controller');
 const postsController = require('../controllers/post_controller');
 
 
-router.get('/profile',usersController.profile);
+router.get('/profile',passport.checkAuthentication,usersController.profile);
 router.get('/post',postsController.posts);
 router.get('/edit',usersController.edit)
 

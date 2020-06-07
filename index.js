@@ -44,6 +44,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(passport.setAuthenticatedUser); // we have defined a middlware manually in passport-local-strategy
+
 //accessing the main route file
 app.use('/', require('./routes/index'))
 
