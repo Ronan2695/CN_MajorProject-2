@@ -116,3 +116,9 @@ module.exports.signOut= function(req, res){
 
 }
 
+module.exports.destroySession = function(req,res){
+
+    req.logout(); //This function is given to req using passportjs
+
+    return res.redirect('/')
+}
