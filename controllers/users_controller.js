@@ -2,7 +2,8 @@ const User = require('../models/user') // We are importing the model.
 
 
 //Redirecting back to the profile page after signing in
-module.exports.profile = function(req, res){
+module.exports.profile = function(req, res)
+{
 
     return res.render('profile', {
         
@@ -19,8 +20,12 @@ module.exports.edit = function(req, res)
 }
 
 //signinpage
-module.exports.signin = function(req, res)
-{
+module.exports.signin = function(req, res){
+
+    if(req.isAuthenticated())
+    {
+       return res.redirect('/users/profile')
+    }
 
     return res.render('users_sign_in', {
         
@@ -33,6 +38,12 @@ module.exports.signin = function(req, res)
 //signuppage
 module.exports.signup = function(req, res)
 {
+
+    if(req.isAuthenticated())
+    {
+       return res.redirect('/users/profile')
+    }
+
 
     return res.render('users_sign_up',{
         

@@ -8,7 +8,9 @@ const db= require('./config/mongoose')
 //used for session cookie
 const session = require('express-session');
 const passport= require('passport');
-const passportLocal= require('./config/passport-local-strategy')
+const passportLocal = require('./config/passport-local-strategy')
+//This library requires an arguement for storing session information in the DB
+const MongoStore = require('connect-mongo')(session);
 
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -28,16 +30,27 @@ app.set('layout extractScripts', true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
-//session-definition
+//session-definition.
+//we are creating a new cookie with the following parameters.
+//mongo store is used to store the session cookie in the db.
 app.use(session({ 
     name:'codial',
     //TODO change the secret before deployment in production mode
-    secret: 'blahsomething',
+    secret: 'blahsomething', // Your cookie data will be encrypted using this string--> Similar to hashing
     saveUninitialized:false,
     cookie: {
         maxAge: (1000 * 60 * 100) // the first value is ms
-    }
-
+    },
+store: new MongoStore(
+        {
+            mongooseConnection: db,
+            autoremove: 'disabled'
+        },
+        function(err)
+        {
+            console.log(err || 'connect-mongodb setup ok')
+        }
+    )
 }))
 
 
