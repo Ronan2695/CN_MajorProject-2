@@ -47,7 +47,6 @@ passport.serializeUser(function(user,done){ //inbuilt function
 
 
 //deserializing the user from the key in the cookies
-
 passport.deserializeUser(function(id,done){
     //finding an user by id
     User.findById(id, function(err,user){
@@ -78,7 +77,7 @@ passport.checkAuthentication = function(req,res,next)
 }
 
 
-
+// Accessing the user in the views.
 passport.setAuthenticatedUser = function(req,res,next)
 {
     if(req.isAuthenticated())
