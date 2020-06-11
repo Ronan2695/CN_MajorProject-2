@@ -1,33 +1,21 @@
-<header> 
-    PAGE HEADER 
 
-    <ul> 
-        local.users is present, we need to show to users name
-        <% if (locals.user){ %>
+<header>
 
-            <li>
-                <a href="/users/profile">
-                    <%= user.name %>
-                </a>
+<link rel="stylesheet" type="text/css" href="/css/header.css">
 
-            </li>
-            <li><a href="/users/sign-out">SIGN OUT</a></li>
+<div id=head>
+		
+		<span id="page_title"> SOCIAL CONNECT </span>
+		<% if (locals.user){ %>
+		<a href="/users/profile" class="sign"><%= user.name %></a>
+		<a href="/users/sign-out"  class="signed">SIGN OUT</a>
+		<% } else { %>
+		<a href="/users/sign-in" class="sign">SIGN IN</a>
+		<a href="/users/sign-up" class="signed">SIGN UP</a>
+		<% } %>
+		
+</div>
 
-        <% } else { %>
-
-            <li>
-                <a href="/users/sign-in">SIGN IN</a>
-
-            </li>
-
-            <li>
-                <a href="/users/sign-up">SIGN UP</a>
-
-            </li>
-
-        <% } %>
-    
-    </ul>
 
 </header>
 

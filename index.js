@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const expressLayouts= require('express-ejs-layouts'); // requiring the layouts library
-const app = express();
+const app = express();  
 const port=8000; //In production, ports run on 80
 const db= require('./config/mongoose')
 
