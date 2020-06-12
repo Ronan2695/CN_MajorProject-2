@@ -10,19 +10,19 @@
   background-color: #1186F6; }
   #head #page_title {
     display: block;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bolder;
-    margin-top: 8px;
+    margin-top: 12px;
     margin-left: 4px; }
   #head .sign {
     margin-left: auto;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
     font-weight: bolder; }
   #head .signed {
     margin-left: 25px;
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 25px;
     color: white;
     font-weight: bolder; }

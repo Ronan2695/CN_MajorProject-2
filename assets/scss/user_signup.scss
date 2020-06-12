@@ -1,0 +1,53 @@
+#signup 
+{
+
+    height: 50vh;
+    width:40vw;
+    border:1px solid #1186F6;
+    background-color: #1186F6;
+    margin-top: 10%;
+    margin-left: 45%;
+    color: white;
+    font-weight: bolder;
+    border-radius: 25px;
+
+    #fields
+    {
+        margin-left:100px;
+        margin-top: 25px;
+
+        label
+        {      
+            margin-top: 10px;
+            font-size: 25px;
+            display: block;
+        }
+
+        input
+        {
+            width: 300px;
+            height: 25px;
+            border-radius: 5px;
+            border:1px solid #1186F6;
+        }
+
+        button
+        {
+            border-radius: 5px;
+            width: 100px;
+            height: 50px;
+        }
+
+    }
+
+    span
+    {
+        display: block;
+        margin-left: 300px;
+        font-size:30px;
+        margin-top: 10px;
+    }
+
+
+
+}

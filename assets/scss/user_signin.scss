@@ -1,0 +1,51 @@
+#signin
+{
+height: 45vh;
+width:40vw;
+border:1px solid #1186F6;
+background-color: #1186F6;
+border-radius: 25px;
+margin-top: 10%;
+margin-left: 50%;
+
+    form
+    {
+    margin-top:5%;
+    margin-left:8%;
+
+        input
+        {
+        border-radius: 5px;
+        border:1px solid #1186F6;
+        width:350px;
+        height: 40px;
+        }
+
+        button
+        {
+        border-radius: 5px;
+        border:1px solid #1186F6;
+        width: 100px;
+        height: 50px;
+        }
+
+        label
+        {   
+            font-size: 30px;
+            color:white;
+            display: block;
+            font-weight: bolder;
+        }
+  
+    }
+
+    #signin_title
+    {
+    font-size: 30px;
+    margin-left: 38%;
+    margin-top: 10%;
+    font-weight: bolder;
+    color:white;
+    }
+
+}

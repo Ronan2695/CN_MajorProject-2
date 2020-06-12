@@ -1,12 +1,22 @@
 <link rel="stylesheet" href="/css/user_signin.css">
-<div id="signin">
-<form action="/users/create-session" method="POST">
 
-    <input type="email" name="email" placeholder="email or username" required>
-    <input type="password" name="password" placeholder="enter password" required>
-    <button type="submit" >SIGN IN</button>
-    
-</form>
 
-</div>
+    <div id="signin">
+
+        <div id="signin_title">SIGN IN</div>
+            <form action="/users/create-session" method="POST">
+            <label>Enter Your Email</label>
+                <input type="email" name="email" placeholder="email     or username" required>
+                <br>
+                <br>
+                <label>Enter Your Password</label>
+                <input type="password" name="password" placeholder="enter password" required>
+                <br>
+                <br>
+                <button type="submit" >SIGN IN</button>
+            
+            </form>
+
+    </div>
+
     

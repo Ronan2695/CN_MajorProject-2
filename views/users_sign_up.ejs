@@ -1,16 +1,32 @@
 <link rel="stylesheet" href="/css/user_signup.css">
-<form action="/users/create" method="POST" id="usrform">
+
+<div id="signup">
+
+   <span>SIGNUP</span> 
+
+    <form action="/users/create" method="POST" id="usrform">
 			
-
+    <div id="fields">
+    <label>Enter Your Name</label>
     <input type="text" name="name" placeholder="Enter your name" required>
-
+    <br>
+    <br>
+    <label>Enter Your email</label>
     <input type="email" name="email" placeholder="enter email" required>
-
+    <br>
+    <br>
+    <label>Enter Your password</label>
     <input type="password" name="password" placeholder="enter password" required>
-    
+    <br>
+    <br>
+    <label>Confirm password</label>
     <input type="password" name="confirm_password" placeholder="confirm password" required>
-
+    <br>
+    <br>
     <button id="but" type="submit" >SIGN UP</button>
 
-</form>
+    </form>
+    </div>
+
+</div>
 
