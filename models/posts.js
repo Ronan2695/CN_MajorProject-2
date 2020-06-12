@@ -1,4 +1,4 @@
-const mongoose= require('mongoose')
+const mongoose= require('mongoose');
 
 const postSchema = new mongoose.Schema({
 
@@ -8,9 +8,9 @@ const postSchema = new mongoose.Schema({
    },
    //The post which is created should refer to the user schema.
    //We arer referring to the ObjectID
-   use:{
+   user:{
        type: mongoose.Schema.Types.ObjectId,
-       refer:'User' //We are referring to the userschema
+       ref:'User' //We are referring to the userschema
    }
 
 },{

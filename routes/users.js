@@ -3,11 +3,12 @@ const router = express.Router();
 const passport = require('passport');
 
 const usersController = require('../controllers/users_controller');
-const postsController = require('../controllers/post_controller');
+//routed to index.js
+// const postsController = require('../controllers/post_controller');
 
 
 router.get('/profile',passport.checkAuthentication,usersController.profile);
-router.get('/post',postsController.posts);
+// router.get('/post',postsController.posts);
 router.get('/edit',usersController.edit)
 
 //rendering the sign signup page
