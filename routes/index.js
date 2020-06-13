@@ -14,7 +14,10 @@ router.get('/info',homeController.info);
 
 //user routes
 router.use('/users', require('./users'))
+//posts
 router.use('/posts',require('./posts'))
+//comments
+router.use('/comments', require('./comments'));
 
 //for any further routes, access from here
 //router.use('/routerName', require('./routerfile'))
