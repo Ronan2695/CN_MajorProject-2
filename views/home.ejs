@@ -1,5 +1,3 @@
-
-
 <section>
     <h4>POSTS</h4>
     <!-- Checking if a user is signed in-->
@@ -23,7 +21,8 @@
             <li>
                 <p>
                 <% if(locals.user && locals.user.id == post.user.id){ %>
-                <small> 
+                <!-- Delete button for posts -->
+                    <small> 
                     <a href="/posts/destroy/<%= post.id %>">X</a> 
                 </small>
                 <%}%>
@@ -55,7 +54,13 @@
                             <% for (comment of post.comments) {%>
 
                                 <p>
-
+                                    <!-- Delete Button for comments -->
+                                <% if(locals.user && locals.user.id == comment.user.id){ %>
+                                        <small> 
+                                            <a href="/comments/destroy/<%= comment.id %>">X</a> 
+                                        </small>
+                                    <%}%>
+                                         
                                     <%= comment.content %>
                                     <br>
                                 <small>

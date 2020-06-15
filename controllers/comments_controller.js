@@ -1,6 +1,7 @@
 const Comment= require('../models/comment');
 const Post = require('../models/posts');
 
+//posting a comment
 module.exports.create = function(req,res){
     Post.findById(req.body.post,function(err,post){
         
@@ -22,4 +23,27 @@ module.exports.create = function(req,res){
 
     });
 
+}
+ 
+module.exports.destroy = function(req,res){
+    Comment.findById(req.params.id,function(err,comment){
+        if(comment.user == req.user.id)
+        {   
+            //saving the postid
+            let postId= comment.post;
+
+            comment.remove();
+            //need to pull out commentid from the list of comments
+            //$pull is the native mongoDB syntax
+            Post.findByIdAndUpdate(postId,{$pull:{comments: req.params.id}},function(err,post){
+                return res.redirect('back');
+            })
+            
+        }
+        else
+        {
+            return res.redirect('back');
+        }
+
+    });
 }

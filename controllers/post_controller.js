@@ -29,6 +29,7 @@ module.exports.destroy =  function(req,res){
         //authorization
         //checking whether the user it is the user who was written the post
         //.id means converting the object id into string.
+        
         if(posts.user == req.user.id)
         {
             post.remove();
