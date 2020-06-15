@@ -1,55 +1,9 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 
-<div id="profile_outer">
-			
-    <div id="create-post">
-            
-            <div id="post-header">CREATE POST</div>
+<h1> Codeial/ Profile Page</h1>
 
-            <div id="post">
-            <form action="/action_page.php">
-                <label for="postbox">What are you thinking?</label>
-                <textarea id="postbox" name="post" rows="5" cols="50">
-              
-                  </textarea>
-              <br><br>
-              <input type="submit" value="Submit">
-            </form>	
-        </div>
-
-    </div>
-
-
-    <div id="user_post">
-        
-
-        <span id="post-title">ROHIT NANNAN</span>
-
-        <p id="posted">Hi how are you all</p>
-
-        <div id=user_comment>
-
-            <span>Rohit Nannan</span>
-            <p>I am new to facebook	</p>
-
-         </div>
-        <br>
-        <form action="">
-                    
-                <textarea id="comment" name="comment" rows="2" cols="50">
-                  
-                  </textarea>
-                  <br>
-                  <input type="submit" value="comment">
-              
-        </form>
-
-
-    </div>
-
-
-</div>
-
+<p><%= profile_user.name %></p>
+<p><%= profile_user.email %></p>
 
 
 

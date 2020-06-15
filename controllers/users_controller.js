@@ -2,14 +2,17 @@ const User = require('../models/user') // We are importing the model.
 
 
 //Redirecting back to the profile page after signing in
-module.exports.profile = function(req, res)
-{
-
-    return res.render('profile', {
+module.exports.profile = function(req,res)
+{   
+    User.findById(req.params.id, function(err, user){   
+        return res.render('profile', {
         
-        title:"CODIAL | Profile"
+            title:"CODIAL | Profile",
+            profile_user:user  
+        });
+    }); 
 
-    });
+    
 }
 
 module.exports.edit = function(req, res)
