@@ -27,7 +27,7 @@ module.exports.create = function(req,res){
  
 module.exports.destroy = function(req,res){
     Comment.findById(req.params.id,function(err,comment){
-        if(comment.user == req.user.id)
+        if(comment.user == req.user.    id)
         {   
             //saving the postid
             let postId= comment.post;
@@ -35,7 +35,7 @@ module.exports.destroy = function(req,res){
             comment.remove();
             //need to pull out commentid from the list of comments
             //$pull is the native mongoDB syntax
-            Post.findByIdAndUpdate(postId,{$pull:{comments: req.params.id}},function(err,post){
+            Post.findByIdAndUpdate(postId,{ $pull: {comments: req.params.id}},function(err,post){
                 return res.redirect('back');
             })
             
