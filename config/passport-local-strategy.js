@@ -10,7 +10,7 @@ const User= require('../models/user'); // we are requiring the model
 // We are telling passport to define local strategy
 passport.use(new LocalStrategy({
 
-        usernameField: 'email' //We are identifying using mail
+        usernameField: 'email' //We are identifying the user using mail
 },
 function(email,password,done){   //--> email password are being passed.
     //find a user and establish the indentity
