@@ -63,7 +63,7 @@ passport.deserializeUser(function(id,done){
 });
 
 //check if the user is authenticated.
-//We are have created a new function checkAuthentication.
+//We  have created a new function checkAuthentication.
 //The following function will be used as a middleware.
 passport.checkAuthentication = function(req,res,next)
 {       
