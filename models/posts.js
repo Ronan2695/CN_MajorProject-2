@@ -14,7 +14,6 @@ const postSchema = new mongoose.Schema({
    },
 
    //include the array of ids of all comments in the postSchema itself
-
    comments:[
  
     {

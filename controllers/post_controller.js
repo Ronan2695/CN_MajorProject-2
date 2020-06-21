@@ -23,14 +23,15 @@ module.exports.create =  function(req,res){
 
 
 // We creating an action for deleting posts and comments.
+
 module.exports.destroy =  function(req,res){
     //finding whether post exists in a DB or not.
-    Post.findById(req.params.id, function(err,posts){
+    Post.findById(req.params.id, function(err,post){
         //authorization
         //checking whether the user it is the user who was written the post
         //.id means converting the object id into string.
         
-        if(posts.user == req.user.id)
+        if(post.user == req.user.id)
         {
             post.remove();
             Comments.deleteMany({post:req.params.id}, function(err){

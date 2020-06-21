@@ -13,7 +13,7 @@ module.exports.create = function(req,res){
                 user: req.user._id
 
             }, function(err,comment){
-
+                //We are pushing the newly created comment to the comments array
                 post.comments.push(comment);
                 //We have to save everytime we are updating the DB
                 post.save();
@@ -27,7 +27,7 @@ module.exports.create = function(req,res){
  
 module.exports.destroy = function(req,res){
     Comment.findById(req.params.id,function(err,comment){
-        if(comment.user == req.user.    id)
+        if(comment.user == req.user.id)
         {   
             //saving the postid
             let postId= comment.post;

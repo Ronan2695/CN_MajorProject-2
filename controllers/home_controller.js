@@ -22,7 +22,7 @@ module.exports.home= function(req,res)
             path:'user'
         }
     })
-    .exec(function(err,posts  ){
+    .exec(function(err,posts){
 
         User.find({}, function(err,users){
             //We are sending all the posts and users. 
