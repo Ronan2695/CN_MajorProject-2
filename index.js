@@ -72,6 +72,7 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser); // we have defined a middlware manually in passport-local-strategy
 
+//Flash messages
 app.use(flash()); // We are setting up middleware for flash messages
 app.use(customMware.setFlash);
 
