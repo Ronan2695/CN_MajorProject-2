@@ -113,7 +113,7 @@ module.exports.create = function(req,res){
 
 //sign in
 module.exports.createSession = function(req,res){
-        req.flash('success','Logged in Successfully')
+        req.flash('success','Logged in Successfully');
         return res.redirect('/');
 }
 
@@ -136,7 +136,7 @@ module.exports.signOut= function(req, res){
 module.exports.destroySession = function(req,res){
 
     req.logout(); //This function is given to req using passportjs
-    req.flash('success','Logged Out Successfully')
+    req.flash('success','Logged Out Successfully'); 
 
     return res.redirect('/');
 }
