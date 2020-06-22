@@ -5,6 +5,7 @@ const app = express();
 const port=8000; //In production, ports run on 80
 const db= require('./config/mongoose')
 
+
 //used for session cookie
 const session = require('express-session');
 const passport= require('passport');
@@ -12,6 +13,9 @@ const passportLocal = require('./config/passport-local-strategy')
 //This library requires an arguement for storing session information in the DB
 const MongoStore = require('connect-mongo')(session); //session arguement added since we need to store session 
 const sassMiddleware = require('node-sass-middleware');
+const flash = require('connect-flash'); // For Flash Messages
+const customMware= require('./config/middleware'); //requiring the custom middleware
+
 
 app.use(sassMiddleware({
     src: './assets/scss',
@@ -67,6 +71,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser); // we have defined a middlware manually in passport-local-strategy
+
+app.use(flash()); // We are setting up middleware for flash messages
+app.use(customMware.setFlash);
 
 //accessing the main route file
 app.use('/', require('./routes/index'))
