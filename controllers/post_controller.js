@@ -7,11 +7,24 @@ const Comments = require('../models/comment');
 
         try{
 
-            await Post.create({
+            let post = await Post.create({
                 content:req.body.content,
                 user:req.user._id
         
             });
+            // We are checking for the xhr request and returning a success code if it is present
+            if(req.xhr){
+                return res.status(200).json({
+
+                    data:{
+                    post:post
+                
+                    },
+                 message:"PostCreated"
+                });
+            }
+
+
             req.flash('success', 'Post Published')
             return res.redirect('back');
 
