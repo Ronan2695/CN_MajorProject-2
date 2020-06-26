@@ -17,8 +17,9 @@ const Comments = require('../models/comment');
                 return res.status(200).json({
 
                     data:{
+                        
                     post:post
-                
+
                     },
                  message:"PostCreated"
                 });
