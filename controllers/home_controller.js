@@ -20,6 +20,7 @@ module.exports.home= async function(req,res)
         //we are populating the users from the User Schema 
     //Finding all the posts and populating user of each post
         let posts = await Post.find({})
+        .sort('-createdAt')
         .populate('user')
         .populate({
             path:'comments',

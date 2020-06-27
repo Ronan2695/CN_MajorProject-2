@@ -49,7 +49,18 @@ const Comments = require('../models/comment');
                 if(post.user == req.user.id)
                 {
                     post.remove();
-                    await Comments.deleteMany({post:req.params.id});    
+                    await Comments.deleteMany({post:req.params.id});   
+                    
+                    if(req.xhr){
+                        return res.status(200).json({
+                            data:{
+                                post_id: req.params.id
+                            },
+                            message:"Post Deleted Successfully"
+                        })
+                    }
+
+
                     req.flash('success', 'Post and comments deleted');
                     return res.redirect('back');
                 }
