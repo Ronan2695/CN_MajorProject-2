@@ -1,7 +1,7 @@
 const mongoose= require('mongoose');
 
 const multer = require('multer');
-const Path = require('path');
+const path = require('path');
 //Path where the picture is stored
 const AVATAR_PATH = path.join('/uploads/users/avatars');
 
