@@ -1,3 +1,4 @@
+//This is the root index file
 //Entry Point To all the routes.
 
 const express = require('express');
@@ -11,6 +12,9 @@ console.log("router loaded");
 router.get('/',homeController.home);
 router.get('/about',homeController.about);
 router.get('/info',homeController.info);
+
+//route for API's 
+router.use('/api', require('./api'))
 
 //user routes
 router.use('/users', require('./users'))
