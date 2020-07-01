@@ -30,5 +30,18 @@ router.post('/create-session',passport.authenticate(
 
 router.get('/sign-out', usersController.destroySession);
 
+//signin using google
+
+//google is strategy, scope is info we are fetching.
+router.get('/auth/google', passport.authenticate('google',{scope:['profile','email']}));
+
+//This is the route used to recieve the data
+router.get('/auth/google/callback',passport.authenticate('google', {failureRedirect:'/users/sign-in'}), users.Controller.createSession)
+
+
+
+
+
+
 
 module.exports=router;
