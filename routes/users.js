@@ -36,7 +36,7 @@ router.get('/sign-out', usersController.destroySession);
 router.get('/auth/google', passport.authenticate('google',{scope:['profile','email']}));
 
 //This is the route used to recieve the data
-router.get('/auth/google/callback',passport.authenticate('google', {failureRedirect:'/users/sign-in'}), users.Controller.createSession)
+router.get('/auth/google/callback',passport.authenticate('google', {failureRedirect:'/users/sign-in'}),usersController.createSession)
 
 
 

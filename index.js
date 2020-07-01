@@ -11,6 +11,9 @@ const session = require('express-session');
 const passport= require('passport');
 const passportLocal = require('./config/passport-local-strategy')
 const passportJWT= require('./config/passport-jwt-strategy')//requiring jwt module
+
+const passportgoogle = require('./config/passport-google-oauth2-strategy');
+
 //This library requires an arguement for storing session information in the DB
 const MongoStore = require('connect-mongo')(session); //session arguement added since we need to store session 
 const sassMiddleware = require('node-sass-middleware');
