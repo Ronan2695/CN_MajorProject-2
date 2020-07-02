@@ -40,8 +40,4 @@ router.get('/auth/google/callback',passport.authenticate('google', {failureRedir
 
 
 
-
-
-
-
 module.exports=router;
