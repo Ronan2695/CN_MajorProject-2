@@ -1,16 +1,17 @@
-const nodeMailer = require('../config/nodemailer');
+const nodeMailer = require('../../config/nodemailer');
 
 //creating a function which will send that mail.
-
+// Whenever comment is made, the mailer needs to be called
 
 exports.newComment = (comment) => {
-    console.log('Inside new comment mailer');
+    
+    let htmlstring = nodeMailer.renderTemplate({comment:comment}, '/comments/new_comment')
 
     nodeMailer.transporter.sendMailer({
-        from:"Rohit Nannan Tracker",
+        from:"rhtkmr000@gmail.com",
         to:comment.user.email,
         subject: "New Comment Published",
-        html:'<h1>Comment is published</h1>'
+        html:htmlstring
     }, (err,info) =>  {
 
         if(err)
