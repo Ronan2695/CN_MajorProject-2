@@ -1,27 +1,56 @@
 const Comment= require('../models/comment');
 const Post = require('../models/posts');
+const { createPrivateKey } = require('crypto');
 
 //posting a comment
-module.exports.create = function(req,res){
-    Post.findById(req.body.post,function(err,post){
-        
-        if(post){
-            Comment.create({
+module.exports.create =async function(req,res){
 
+    try{
+
+        let post = await Post.findById(req.body.post);
+
+        if (post){
+
+            let comment = await Comment.create({
                 content: req.body.content,
                 post:req.body.post,
-                user: req.user._id
-
-            }, function(err,comment){
-                //We are pushing the newly created comment to the comments array
-                post.comments.push(comment);
-                //We have to save everytime we are updating the DB
-                post.save();
-                res.redirect('back');
+                user: req.user._id           
             });
+
+            post.comments.push(comment);
+            post.save();
+
+            if(req.xhr){
+
+                comment = await comment.populate('user', 'name').execPopulate();
+
+                    return res.status(200).json({
+
+                        data:{
+
+                            comment: comment
+
+                        },
+
+                        message: "Post created!"
+
+                    });
+            }
+
+            req.flash('success', 'Comment Published');
+
+            res.direct('/')
+
         }
 
-    });
+
+    }catch(err){
+
+        req.flash('error', err);
+        return;
+
+    }
+  
 
 }
  
