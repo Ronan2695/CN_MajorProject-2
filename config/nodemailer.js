@@ -1,9 +1,9 @@
 const nodemailer =  require('nodemailer');
-const ejs = require('ejs');
+const ejs = require('ejs'); //For  rendering HTML templates in views
 const path= require('path');
 
 
-//Defining the mail communication
+//Defining the mail communication, on which user you want to send the mail to
 let transporter = nodemailer.createTransport({
 
     service:'gmail',
@@ -11,15 +11,14 @@ let transporter = nodemailer.createTransport({
     port:587,
     secure: false,
     auth:{
-        
-        user:'rhtkmr000@gmail.com',
-        pass:'RohitNannan@2695'
+        user:'rhtkmr000',
+        pass:'AdrollNocEngineer@2695'
     }
 
 });
 
 
-// We need to define EJS for the mail.
+// We need to deFine EJS for the mail.
  
 let renderTemplate = (data, relativePath) => {
     let mailHTML;

@@ -3,7 +3,7 @@ const Post = require('../models/posts');
 const { createPrivateKey } = require('crypto');
 
 //Controller mailer action
-const commentsMailer = require('../views/mailers/commentsmailer');
+const commentsMailer = require('../mailers/comments_mailer');
 
 //posting a comment
 module.exports.create =async function(req,res){
@@ -25,7 +25,7 @@ module.exports.create =async function(req,res){
 
                 comment = await comment.populate('user', 'name email').execPopulate();
                 //controller mailer action for comments
-                commentsMailer.newComment(comment)
+                commentsMailer.newComment(comment);
             if(req.xhr){
 
                     return res.status(200).json({
