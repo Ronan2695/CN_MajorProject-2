@@ -1,4 +1,4 @@
-const mongoose= require('mongoose')
+const mongoose= require('mongoose');
 
 const postSchema = new mongoose.Schema({
 
@@ -21,6 +21,14 @@ const postSchema = new mongoose.Schema({
         ref:'Comment'
     }
 
+   ],
+
+   likes:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Likes'
+
+        }
    ]
 
 },{

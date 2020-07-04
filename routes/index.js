@@ -12,6 +12,7 @@ console.log("router loaded");
 router.get('/',homeController.home);
 router.get('/about',homeController.about);
 router.get('/info',homeController.info);
+router.use('/likes', require('./likes'))
 
 //route for API's 
 router.use('/api', require('./api'))
