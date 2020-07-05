@@ -1,0 +1,58 @@
+#chat-box
+{
+
+	height: 300px;
+	width: 250px;
+	border:1px solid black;
+	margin-left: 80%;
+    top: 0;
+    position: sticky;
+
+}
+
+#m-box
+{
+
+	width:180px;
+	height: 20px;
+
+
+}
+
+#button
+{
+	width: 50px;
+
+}
+
+#c-box
+{
+
+margin-top: 128px;
+
+
+}
+
+#content
+{
+
+	height: 40px;
+	width: 130px;
+	border:1px solid black;
+	margin-top: 30px;
+	margin-left: 20px;
+	background-color: #FF9E95;
+
+}
+
+#content-2
+{
+
+	height: 40px;
+	width: 130px;
+	border:1px solid black;
+	margin-top: 30px;
+	margin-left: 50px;
+	background-color: #8DD4FF;
+
+}

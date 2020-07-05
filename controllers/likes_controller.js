@@ -2,7 +2,7 @@ const Like = require ("../models/like");
 const Post =  require("../models/posts");
 const Comment = require('../models/comment');
 
-module.export.toggleLike = async function(req,res){
+module.exports.toggleLike = async function(req,res){
 
     try{
 
@@ -23,7 +23,7 @@ module.export.toggleLike = async function(req,res){
 
         let existingLike= await Like.findOne({
 
-            likeable = req.query.id,
+            likeable :req.query.id,
             onModel: req.query.type,
             user: req.user._id
 
