@@ -1,5 +1,23 @@
-const development = { 
+const fs= require('fs');
+const rfs= require('rotating-file-stream');
+const path = require('path');
 
+//defining where the logs will be stored
+const logDirectory =path.join(__dirname,'../production_logs')
+//Checking if the log directory exists.
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+const accessLogStream = rfs.createStream('access.log',{
+
+    interval:'1d',
+    path:logDirectory
+    
+})
+
+
+
+//env variables defined for development
+const development = { 
 
     name: 'development', 
     asset_path: '/assets', 
@@ -23,11 +41,17 @@ const development = {
     google_client_id:"117684921685-9qgipbpia3rclvhj5sasbir2e8qk4l2j.apps.googleusercontent.com", 
     google_client_secret:"Qdwtp3Dpaw0dpfqV7MycNwlx", 
     google_call_back_url:"http://localhost:8000/users/auth/google/callback", 
-    jwt_secret:'codeial' 
+    jwt_secret:'codeial' ,
+    morgan:{
+        node:'dev',
+        options: {stream:accessLogStream}
+    }
+
 
 } 
 
-
+//env variables defined for production
+//they will be stored in a separate file.
 const production = {
 
     name: 'production',
@@ -50,6 +74,11 @@ const production = {
     google_client_secret:process.env.GOOGLE_CLIENT_SECRET,
     google_call_back_url:process.env.GOOGLE_CALLBACK_URL,
     jwt_secret:process.env.CODEIAL_JWT_SECRET,
+    morgan:{
+        node:'combined',
+        options: {stream:accessLogStream}
+    }
+
 }
 
 

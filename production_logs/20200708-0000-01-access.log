@@ -1,0 +1,2 @@
+::1 - - [Tue, 07 Jul 2020 18:07:03 GMT] "GET / HTTP/1.1" 200 4691 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
+::1 - - [Tue, 07 Jul 2020 18:07:41 GMT] "GET /users/profile/5f0496ab83bbbe5d80828cf3 HTTP/1.1" 200 2263 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36"
