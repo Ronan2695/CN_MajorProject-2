@@ -1,0 +1,21 @@
+#footer {
+  display: flex;
+  height: 15vh;
+  width: auto;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 80%;
+  background-color: #1186F6; }
+  #footer #page_title2 {
+    display: block;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-top: 50px;
+    color: white; }
+  #footer #footer_list {
+    list-style-type: none;
+    margin-left: 40px;
+    font-size: 20px;
+    margin-top: 30px; }
+    #footer #footer_list a {
+      text-decoration: none; }
