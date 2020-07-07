@@ -132,7 +132,7 @@ module.exports.create = function(req,res){
         {
             User.create( req.body, function(err,user){
                     if(err){
-                        console.log('Error in creating user while signing up');
+                        console.log('Error in creating user while signing up', err);
                         return
                     }
 
