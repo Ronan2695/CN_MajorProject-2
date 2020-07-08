@@ -4,6 +4,7 @@ const logger = require('morgan');//For Logging in production
 const cookieParser = require('cookie-parser');
 const expressLayouts= require('express-ejs-layouts'); // requiring the layouts library
 const app = express();  
+require('./config/view-helpers')(app);
 const port=8000; //In production, ports run on 80
 const db= require('./config/mongoose')
 
